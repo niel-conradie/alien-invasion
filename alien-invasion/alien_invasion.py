@@ -70,18 +70,9 @@ class AlienInvasion:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
 
-    def _update_bullets(self):
-        """Update position of bullets and get rid of old bullets."""
-        # Update bullet positions.
-        self.bullets.update()
-
-        # Get rid of bullets that have disappeared.
-        for bullet in self.bullets.copy():
-            if bullet.rect.bottom <= 0:
-                self.bullets.remove(bullet)
-
-        # Check for any bullets that have hit aliens.
-        # If so, get rif of the bullet and the alien.
+    def _check_bullet_alien_collisions(self):
+        """Respond to bullets-aliens collisions."""
+        # Remove any bullets and aliens that have collided.
         collections = pygame.sprite.groupcollide(
             self.bullets,
             self.aliens,
@@ -93,6 +84,18 @@ class AlienInvasion:
             # Destroy existing bullets and create new fleet.
             self.bullets.empty()
             self._create_fleet()
+
+    def _update_bullets(self):
+        """Update position of bullets and get rid of old bullets."""
+        # Update bullet positions.
+        self.bullets.update()
+
+        # Get rid of bullets that have disappeared.
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+
+        self._check_bullet_alien_collisions()
 
     def _create_alien(self, alien_number, row_number):
         """Create an alien and place it in the row."""
