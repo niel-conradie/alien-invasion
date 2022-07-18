@@ -1,3 +1,4 @@
+import collections
 import sys
 import pygame
 
@@ -78,6 +79,15 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+
+        # Check for any bullets that have hit aliens.
+        # If so, get rif of the bullet and the alien.
+        collections = pygame.sprite.groupcollide(
+            self.bullets,
+            self.aliens,
+            True,
+            True,
+        )
 
     def _create_alien(self, alien_number, row_number):
         """Create an alien and place it in the row."""
