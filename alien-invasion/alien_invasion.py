@@ -122,7 +122,8 @@ class AlienInvasion:
         )
 
         if collisions:
-            self.stats.score += self.settings.alien_points
+            for aliens in collisions.values():
+                self.stats.score += self.settings.alien_points * len(aliens)
             self.scoreboard.prepare_score()
 
         if not self.aliens:
