@@ -16,7 +16,7 @@ class Scoreboard:
         self.font = pygame.font.Font(None, 48)
 
         # Prepare the initial score image.
-        self.prep_score()
+        self.prepare_score()
 
     def prepare_score(self):
         """Turn the score into a rendered image."""
