@@ -4,6 +4,7 @@ import pygame
 from time import sleep
 
 from settings import Settings
+import audio as sfx
 from game_stats import GameStats
 from scoreboard import Scoreboard
 from button import Button
@@ -112,6 +113,7 @@ class AlienInvasion:
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            sfx.laser.play()
 
     def _check_bullet_alien_collisions(self):
         """Respond to bullets-aliens collisions."""
@@ -128,6 +130,7 @@ class AlienInvasion:
                 self.stats.score += self.settings.alien_points * len(aliens)
             self.scoreboard.prepare_score()
             self.scoreboard.check_high_score()
+            sfx.explosion.play()
 
         if not self.aliens:
             # Destroy existing bullets and create new fleet.
@@ -206,6 +209,8 @@ class AlienInvasion:
     def _ship_hit(self):
         """Respond to the ship being hit by alien."""
         if self.stats.ships_left > 0:
+            sfx.explosion.play()
+
             # Decrement ships_left, and update scoreboard.
             self.stats.ships_left -= 1
             self.scoreboard.prepare_ships()
