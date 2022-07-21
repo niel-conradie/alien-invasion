@@ -2,7 +2,7 @@ from alien_invasion import AlienInvasion
 
 
 def run():
-    """Alien-Invasion"""
+    """Alien-Invasion."""
     run = AlienInvasion()
 
     # Starting the game.
@@ -10,4 +10,5 @@ def run():
 
 
 if __name__ == "__main__":
+    # Make a game instance, and run the game.
     run()
