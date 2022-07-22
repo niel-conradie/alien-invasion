@@ -1,7 +1,5 @@
 import pygame
 
-from alien_invasion import AlienInvasion
-
 
 class ComputerPlayer:
     """Computer player for Alien Invasion."""
