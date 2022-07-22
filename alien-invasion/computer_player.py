@@ -28,11 +28,3 @@ class ComputerPlayer:
                 self.game._fire_bullet()
 
             self.game._update_screen()
-
-
-if __name__ == "__main__":
-    run = AlienInvasion()
-
-    # Starting the game.
-    player = ComputerPlayer(run)
-    player.start_game()
