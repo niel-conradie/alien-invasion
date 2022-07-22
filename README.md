@@ -14,22 +14,19 @@ The goal is to shoot the enemy space ships before they reach earth. The game con
 
 Alien Invasion can be installed via Pip. To start, clone the repository to your local computer and change into the proper directory.
 
+* *Clone Repository*
 ```bash
-Clone Repository
-
   $ git clone https://github.com/niel-conradie/Alien-Invasion.git
   $ cd Alien-Invasion
 ```
 ### Pip Install
 
+* *Create Environment*
 ```bash
-Create Environment
-
   $ python -m venv .venv
 ```
+* *Activate Environment*
 ```bash
-Activate Environment
-
   # Bash
   $ source .venv/Scripts/activate
 
@@ -43,17 +40,15 @@ Activate Environment
   PS C:> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
   PS C:> .venv\Scripts\Activate.ps1
 ```
+* *Install Requirements*
 ```bash
-Install Requirements
-
   (.venv) $ python -m pip install -r requirements.txt
 ```
 ----
 ## Usage
 
+*To start the game run one of these two files.*
 ```bash
-To start the game run one of these two files.
-
   # Human Player
   run.py
 
