@@ -20,7 +20,6 @@ Clone Repository
   $ git clone https://github.com/niel-conradie/Alien-Invasion.git
   $ cd Alien-Invasion
 ```
-----
 ### Pip Install
 
 ```bash
