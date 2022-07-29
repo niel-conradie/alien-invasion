@@ -2,7 +2,7 @@
 
 **Alien Invasion Game written in [Python](https://www.python.org) built using [Pygame](https://www.pygame.org/news).**
 
-The goal is to shoot the enemy space ships before they reach earth. The game continuously gets more difficult as the levels progress. You can play yourself or let a computer play for you!
+The goal is to shoot the enemy space ships before they reach the bottom of the screen. The game continuously gets more difficult as the levels progress. You can play yourself or let a computer play for you!
 
 ----
 ## **Requirements**
@@ -47,7 +47,7 @@ Alien Invasion can be installed via [Pip](https://pypi.org/project/pip/). To sta
 ----
 ## **Usage**
 
-To start Alien Invasion game run one of these two files.
+To launch the Alien Invasion Game use one of these two files.
 ```bash
   # Human Player
   run.py
@@ -55,4 +55,9 @@ To start Alien Invasion game run one of these two files.
   # Computer Player
   run_computer.py
 ```
+----
+## **License**
+
+[MIT License](https://github.com/niel-conradie/Alien-Invasion/blob/master/LICENSE)
+
 ----
