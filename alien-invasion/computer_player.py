@@ -35,17 +35,40 @@ class ComputerPlayer:
 
     def _implement_strategy(self):
         """Implement an automated strategy for playing the game."""
-        # Sweep right and left until half the fleet is destroyed, then stop.
-        if len(self.game.aliens) >= 0.5 * self.fleet_size:
-            self._sweep_right_left()
-        else:
-            self.game.ship.moving_right = False
-            self.game.ship.moving_left = False
+        # Get specific alien to chase.
+        target_alien = self._get_target_alien()
 
-        # Fire a bullet at the given frequency, whenever possible.
-        firing_frequency = 0.5
+        # Move toward target alien.
+        ship = self.game.ship
+        if ship.rect.x < target_alien.rect.x:
+            ship.moving_right = True
+            ship.moving_left = False
+        elif ship.rect.x > target_alien.rect.x:
+            ship.moving_right = False
+            ship.moving_left = True
+
+        # Fire a bullet whenever possible.
+        firing_frequency = 1.0
         if random() < firing_frequency:
             self.game._fire_bullet()
+
+    def _get_target_alien(self):
+        """Get a specific alien to target."""
+        # Find the right-most alien in the bottom row.
+        # Pick the first alien in the group. Then compare all others,
+        # and return the alien with the greatest x and y rect attributes.
+        target_alien = self.game.aliens.sprites()[0]
+        for alien in self.game.aliens.sprites():
+            if alien.rect.y > target_alien.rect.y:
+                # This alien is farther down than target_alien.
+                target_alien = alien
+            elif alien.rect.y < target_alien.rect.y:
+                # This alien is above target_alien.
+                continue
+            elif alien.rect.x > target_alien.rect.x:
+                # This alien is in the same row, but farther right.
+                target_alien = alien
+        return target_alien
 
     def _sweep_right_left(self):
         """Sweep the ship right and left continuously."""
