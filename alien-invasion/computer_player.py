@@ -17,27 +17,37 @@ class ComputerPlayer:
         # Start the main loop for the game.
         while True:
             # Still call game._check_events(), so we can use keyboard to quit.
+            # Also call our own method to initiate events.
             self.game._check_events()
-
-            # Sweep the ship right and left continuously.
-            ship = self.game.ship
-            screen_rect = self.game.screen.get_rect()
-
-            if not ship.moving_right and not ship.moving_left:
-                # Ship hasn't started moving yet; move to the right.
-                ship.moving_right = True
-            elif ship.moving_right and ship.rect.right > screen_rect.right - 10:
-                # Ship about to hit right edge; move left.
-                ship.moving_right = False
-                ship.moving_left = True
-            elif ship.moving_left and ship.rect.left < 10:
-                ship.moving_left = False
-                ship.moving_right = True
+            self._implement_strategy()
 
             if self.game.stats.game_active:
                 self.game.ship.update()
                 self.game._update_bullets()
                 self.game._update_aliens()
-                self.game._fire_bullet()
 
             self.game._update_screen()
+
+    def _implement_strategy(self):
+        """ Implement an automated strategy for playing the game. """
+        self._sweep_right_left()
+
+        # Fire a bullet whenever possible.
+        self.game._fire_bullet()
+
+    def _sweep_right_left(self):
+        """ Sweep the ship right and left continuously. """
+        ship = self.game.ship
+        screen_rect = self.game.screen.get_rect()
+
+        if not ship.moving_right and not ship.moving_left:
+            # Ship hasn't started moving yet; move to the right.
+            ship.moving_right = True
+        elif (ship.moving_right and ship.rect.right
+              > screen_rect.right - 10):
+            # Ship about to hit right edge; move left.
+            ship.moving_right = False
+            ship.moving_left = True
+        elif ship.moving_left and ship.rect.left < 10:
+            ship.moving_left = False
+            ship.moving_right = True
