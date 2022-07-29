@@ -16,6 +16,9 @@ class ComputerPlayer:
         self.game.stats.game_active = True
         pygame.mouse.set_visible(False)
 
+        # Get the full fleet size.
+        self.fleet_size = len(self.game.aliens)
+
         # Start the main loop for the game.
         while True:
             # Still call game._check_events(), so we can use keyboard to quit.
@@ -32,7 +35,12 @@ class ComputerPlayer:
 
     def _implement_strategy(self):
         """Implement an automated strategy for playing the game."""
-        self._sweep_right_left()
+        # Sweep right and left until half the fleet is destroyed, then stop.
+        if len(self.game.aliens) >= 0.5 * self.fleet_size:
+            self._sweep_right_left()
+        else:
+            self.game.ship.moving_right = False
+            self.game.ship.moving_left = False
 
         # Fire a bullet at the given frequency, whenever possible.
         firing_frequency = 0.5
