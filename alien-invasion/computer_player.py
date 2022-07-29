@@ -16,6 +16,9 @@ class ComputerPlayer:
         self.game.stats.game_active = True
         pygame.mouse.set_visible(False)
 
+        # Speed up the game multiplier.
+        self._modify_speed(1)
+
         # Get the full fleet size.
         self.fleet_size = len(self.game.aliens)
 
@@ -85,3 +88,9 @@ class ComputerPlayer:
         elif ship.moving_left and ship.rect.left < 10:
             ship.moving_left = False
             ship.moving_right = True
+
+    def _modify_speed(self, speed_factor):
+        """Game speed modifier."""
+        self.game.settings.ship_speed *= speed_factor
+        self.game.settings.bullet_speed *= speed_factor
+        self.game.settings.alien_speed *= speed_factor
