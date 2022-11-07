@@ -7,7 +7,7 @@ The goal is to shoot the enemy space ships before they reach the bottom of the s
 ----
 ## **Requirements**
 
-- [Python 3.10.5](https://www.python.org/downloads/release/python-3105/)
+- [Python 3.10.X](https://www.python.org/downloads/)
 - [Pygame 2.1.2](https://www.pygame.org/news)
 ----
 ## **Installation**
@@ -16,8 +16,8 @@ Alien Invasion can be installed via [Pip](https://pypi.org/project/pip/). To sta
 
 * **Clone Repository**
 ```bash
-  $ git clone https://github.com/niel-conradie/Alien-Invasion.git
-  $ cd Alien-Invasion
+  $ git clone https://github.com/niel-conradie/alien-invasion.git
+  $ cd alien-nvasion
 ```
 ### **Pip Install**
 
