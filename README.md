@@ -17,7 +17,7 @@ Alien Invasion can be installed via [Pip](https://pypi.org/project/pip/). To sta
 * **Clone Repository**
 ```bash
   $ git clone https://github.com/niel-conradie/alien-invasion.git
-  $ cd alien-nvasion
+  $ cd alien-invasion
 ```
 ### **Pip Install**
 
