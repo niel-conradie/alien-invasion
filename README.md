@@ -16,45 +16,44 @@ Alien Invasion can be installed via [Pip](https://pypi.org/project/pip/). To sta
 
 * **Clone Repository**
 ```bash
-  $ git clone https://github.com/niel-conradie/alien-invasion.git
-  $ cd alien-invasion
+git clone https://github.com/niel-conradie/alien-invasion.git
+```
+* **Change Directory**
+```bash
+cd alien-invasion
 ```
 ### **Pip Install**
 
 * **Create Environment**
 ```bash
-  $ python -m venv .venv
+python -m venv .venv
 ```
 * **Activate Environment**
 ```bash
-  # Bash
-  $ source .venv/Scripts/activate
+# Bash
+$ source .venv/Scripts/activate
 
-  # Command Prompt
-  C:> .venv\Scripts\activate.bat
+# Command Prompt
+C:> .venv\Scripts\activate.bat
 
-  # macOS
-  $ .venv/bin/activate
+# macOS
+$ .venv/bin/activate
 
-  # PowerShell
-  PS C:> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-  PS C:> .venv\Scripts\Activate.ps1
+# PowerShell
+PS C:> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+PS C:> .venv\Scripts\Activate.ps1
 ```
 * **Install Requirements**
 ```bash
-  (.venv) $ python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 ----
 ## **Usage**
 
-To launch the Alien Invasion Game use one of these two files.
-```bash
-  # Human Player
-  run.py
+- To launch the Alien Invasion game use one of these two files to start.
+- Human player use [run.py](https://github.com/niel-conradie/alien-invasion/blob/master/alien-invasion/run.py)
+- Computer player use [run_computer.py](https://github.com/niel-conradie/alien-invasion/blob/master/alien-invasion/run_computer.py)
 
-  # Computer Player
-  run_computer.py
-```
 ----
 ## **License**
 
